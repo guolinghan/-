@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="山野行，发现国内小众旅行目的地，拖拽规划你的专属行程。"
+    />
+    <meta name="theme-color" content="#3b6b5f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>山野行｜探索国内小众目的地</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('shanyexing_theme')
+        if (theme === 'dark') document.documentElement.classList.add('dark')
+      } catch (error) {
+        // 浏览器禁用本地存储时，直接使用默认浅色主题。
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
