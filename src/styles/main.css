@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-canvas font-sans text-ink antialiased transition-colors duration-500 dark:bg-night dark:text-slate-100;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-forest-200 text-forest-900;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-label {
+    @apply mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-forest-600 dark:text-forest-300;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-4xl dark:text-white;
+  }
+
+  .section-copy {
+    @apply mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base dark:text-slate-400;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas dark:focus-visible:ring-forest-300 dark:focus-visible:ring-offset-night;
+  }
+
+  .glass-panel {
+    @apply border border-white/60 bg-white/80 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06];
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-gray-400 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/15 dark:border-white/10 dark:bg-white/[0.06] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-forest-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 顶部全局导航字体统一放大 1px，保持原有高度和布局。 */
+header nav .text-sm {
+  font-size: 16px;
+}
+
+header nav .text-xs {
+  font-size: 14px;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 220ms ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-rise-enter-active,
+.modal-rise-leave-active {
+  transition:
+    opacity 240ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-rise-enter-from,
+.modal-rise-leave-to {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition:
+    opacity 220ms ease,
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(-12px) translateX(-50%);
+}
+
+.drag-ghost {
+  opacity: 0.45;
+  background: rgba(59, 107, 95, 0.08) !important;
+}
+
+.drag-chosen {
+  cursor: grabbing;
+}
