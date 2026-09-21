@@ -8,8 +8,8 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     // 图片存放在项目根目录的 image 文件夹，并通过 /assets/images/* 访问。
     publicDir: 'image',
-    // 本地和用户页面默认使用绝对根路径，GitHub Pages 子目录可通过环境变量覆盖。
-    base: env.VITE_BASE_PATH || '/',
+    // 相对路径同时兼容本地预览、Gitee Pages 子目录和 GitHub Pages。
+    base: env.VITE_BASE_PATH || './',
     server: {
       host: true,
       port: 5173
