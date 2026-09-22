@@ -1,62 +1,80 @@
 # 山野行｜目的地旅行规划平台
 
-一个以国内 3 天短途山野旅行为主题的前端作品集。项目使用 Vue 3、TypeScript、Vite、Tailwind CSS 和 vuedraggable，实现大区选择、景点详情、收藏、多行程管理、三日拖拽规划、预算统计和本地模拟登录。
+一个面向国内 3 天短途山野旅行的前端作品集项目。用户可以浏览目的地、收藏景点，并按旅行大区规划自己的三日行程。
+
+项目使用 Vue 3、TypeScript、Vite、Tailwind CSS 和 vuedraggable 开发，数据完全由前端 Mock 和 localStorage 模拟，不依赖后端接口。
+
+## 功能概览
+
+- 4 个旅行大区：川西小环线、桂北阳朔、郴州山野、浙西临安
+- 景点搜索、大区筛选、类型标签筛选
+- 景点详情、分级贴士、地理位置和简易地图
+- 收藏、注册、登录和退出登录模拟
+- Day1 / Day2 / Day3 行程规划
+- 上午、下午、傍晚、夜间四时段拖拽
+- 景点条目与自定义条目混排
+- 行程条目支持完成、编辑、复制、备注和删除
+- 支持覆盖推荐游玩时长
+- 支持手动锁定开始与结束时间
+- 自定义景点素材和固定快捷安排
+- 每日景点贴士汇总和当日备注
+- 多行程创建、删除、只读详情和文本导出
+- 个人收藏、账号设置和装备 Todo 清单
+- 高原、徒步、自驾和行李打包指南
+- 基于经纬度的智能路线顺序推荐
+- 优化前后路线距离对比和确认弹窗
+- 应用推荐顺序后同步重排行程与地图路线
+- 浅色 / 深色主题切换
+- 桌面、平板和手机响应式布局
 
 ## 技术栈
 
-- Vue 3 + Composition API + `<script setup lang="ts">`
+- Vue 3
 - TypeScript
-- Vite 4
-- Tailwind CSS 3
-- Vue Router 4
-- vuedraggable 4
+- Vite
+- Tailwind CSS
+- Vue Router
+- vuedraggable
 - lucide-vue-next
 
-## 路由页面
+## 页面路由
 
 | 路由 | 页面 |
 | --- | --- |
-| `/` | 首页，沉浸式 Hero 与 4 个大区入口 |
-| `/regions` | 目的地浏览页，支持大区、关键词、标签叠加筛选与地图视图 |
-| `/planner` | 三日时段拖拽规划页，支持预算、车程、地图和自定义安排 |
-| `/login` | 左右分栏登录注册页 |
-| `/spot/:id` | 景点详情动态路由 |
-| `/my-trip` | 我的行程列表 |
-| `/my-trip/:tripId` | 行程只读时间轴与复制导出 |
-| `/profile` | 个人中心、收藏管理与账号设置 |
-| `/guide` | 高原、徒步、自驾和行李打包指南 |
+| `/` | 首页 |
+| `/regions` | 目的地浏览与大区筛选 |
+| `/planner` | 三日行程规划 |
+| `/login` | 登录与注册 |
+| `/spot/:id` | 景点详情 |
+| `/my-trip` | 我的行程 |
+| `/my-trip/:tripId` | 行程只读详情 |
+| `/profile` | 个人中心 |
+| `/guide` | 旅行通用指南 |
 
-项目使用 Hash 路由，本地地址示例：
+项目使用 Hash 路由，部署到静态托管平台时不需要配置服务端回退规则。
 
-```text
-http://localhost:5173/#/regions
-http://localhost:5173/#/spot/spot1
-http://localhost:5173/#/my-trip
+## 本地运行
+
+```bash
+npm install
+npm run dev
 ```
 
-## 核心功能
+也可以使用 pnpm：
 
-- 4 个旅行大区：川西小环线、桂北阳朔、郴州山野、浙西临安
-- 23 个景点 Mock 数据，包含所属大区、经纬度、景点间车程、门票、标签、最佳季节、海拔和游玩时长
-- 未登录时限制收藏、创建行程和拖拽保存
-- 登录成功后跳回原页面
-- 同一大区行程，每天最多安排 4 个景点
-- 按上午、下午、傍晚、夜间四个时段拖拽
-- 支持跨 Day、同时段和不同时段拖拽排序
-- 景点条目与自定义条目完全平等、自由混排
-- 自定义条目支持固定模板，也可手动填写名称和时长
-- 支持完成勾选、编辑、复制、删除、备注和展开景点贴士
-- 支持覆盖推荐时长、手动锁定开始和结束时间
-- 每人每天自动汇总景点贴士，并可追加当日备注
-- 自动统计门票、食宿费用、每日车程和总车程
-- 自动推算到达与结束时间，并提供当日拥挤提醒
-- 根据景点间车程提供简易智能排序
-- 景点详情和行程规划页提供坐标归一化的简易路线地图
-- 多行程新建、删除、只读时间轴和复制文本导出
-- 行程导出包含实际时长、车程、备注、景点贴士和当日补充
-- 个人中心增加高原、徒步两类装备 Todo 模板
-- 收藏景点、修改昵称、退出登录、清除本地数据
-- 全站浅色 / 深色主题切换
+```bash
+pnpm install
+pnpm dev
+```
+
+构建生产版本：
+
+```bash
+npm run build
+npm run preview
+```
+
+构建产物位于 `dist`。
 
 ## 演示账号
 
@@ -65,67 +83,15 @@ http://localhost:5173/#/my-trip
 密码：123456
 ```
 
-也可以直接在注册页创建新账号。
+也可以直接在注册页面创建本地演示账号。
 
-## 启动项目
+## 数据与持久化
 
-依赖目录位于：
+项目没有后端服务。用户信息、收藏、行程、主题、当前大区、当前行程和装备清单都保存在浏览器 `localStorage`。
 
-```text
-D:\software\shan-ye-xing-deps
-```
+主要存储键：
 
-项目根目录的 `.npmrc` 已配置 npm/pnpm 使用该目录，且已加入 `.gitignore`。
-
-```powershell
-cd F:\前端项目\山野行
-npm run dev
-```
-
-使用 pnpm：
-
-```powershell
-cd F:\前端项目\山野行
-pnpm dev
-```
-
-## 构建
-
-```powershell
-npm run build
-npm run preview
-```
-
-构建产物位于 `dist`。
-
-## GitHub Pages
-
-如果部署到仓库子目录：
-
-```powershell
-$env:VITE_BASE_PATH="/shan-ye-xing/"; npm run build
-```
-
-项目使用 Hash 路由，部署到 GitHub Pages 时不需要额外配置服务端回退规则。
-
-## 图片资源
-
-```text
-image/
-├─ assets/images/   # 本地景点图片
-└─ assets/region/   # 4 张大区封面
-```
-
-Vite 的 `publicDir` 指向项目根目录的 `image`，因此页面和 Mock 数据使用以下绝对路径：
-
-```text
-/assets/images/*.jpg
-/assets/region/*.jpg
-```
-
-## localStorage
-
-| 数据 | Key |
+| 数据 | localStorage Key |
 | --- | --- |
 | 主题模式 | `shanyexing_theme` |
 | 演示账号 | `shanyexing_users_demo` |
@@ -135,16 +101,68 @@ Vite 的 `publicDir` 指向项目根目录的 `image`，因此页面和 Mock 数
 | 当前行程 | `shanyexing_active_trip` |
 | 当前大区 | `shanyexing_current_region` |
 
-> 该项目仅用于前端演示，密码以明文保存在浏览器 localStorage，生产环境必须使用安全后端、密码哈希与正式鉴权方案。
+> 该项目仅用于前端演示。登录功能属于本地模拟，密码以明文形式保存在 localStorage，生产环境必须使用安全后端、密码哈希和正式鉴权方案。
+
+## 图片资源
+
+景点图片和大区封面存放在 `image/assets` 目录：
+
+```text
+image/
+├─ favicon.svg
+└─ assets/
+   ├─ images/
+   └─ region/
+```
+
+Vite 的 `publicDir` 指向 `image` 目录，构建时会自动把图片复制到静态产物中。
+
+## 智能路线优化
+
+智能优化顺序基于景点经纬度执行简化 TSP 路径规划：
+
+1. 使用球面距离计算景点之间的空间距离。
+2. 使用多起点最近邻算法生成基础路线。
+3. 使用 2-opt 局部优化继续缩短路线。
+4. 对比优化前后总距离，生成推荐顺序。
+5. 用户确认后，将景点按游玩时长重新分配到 Day1-Day3。
+6. 自定义条目保留在原 Day 和原时段，不会被删除。
+7. 地图路线和行程卡片使用同一份数据，因此会同步更新。
+
+## 静态部署
+
+执行：
+
+```bash
+npm run build
+```
+
+然后将 `dist` 目录部署到任意静态托管服务，例如 GitHub Pages、Gitee Pages、Netlify 或 Vercel。
+
+项目默认使用相对资源路径，可以部署在网站根目录或子目录。
+
+如果使用 Gitee Pages 或 GitHub Pages 的 `docs` 目录部署，可以执行：
+
+```bash
+npm run build -- --outDir docs --emptyOutDir
+```
+
+随后在托管平台中选择：
+
+```text
+分支：master
+目录：docs
+```
 
 ## 目录结构
 
 ```text
-山野行/
+├─ docs/                      # 可选的静态部署目录
 ├─ image/
+│  ├─ favicon.svg
 │  └─ assets/
-│     ├─ images/
-│     └─ region/
+│     ├─ images/              # 景点图片
+│     └─ region/              # 大区封面
 ├─ src/
 │  ├─ components/
 │  │  ├─ HeroSection.vue
@@ -152,6 +170,8 @@ Vite 的 `publicDir` 指向项目根目录的 `image`，因此页面和 Mock 数
 │  │  ├─ PlannerBoard.vue
 │  │  ├─ RegionGrid.vue
 │  │  ├─ RegionSwitchModal.vue
+│  │  ├─ RouteOptimizeModal.vue
+│  │  ├─ SimpleRegionMap.vue
 │  │  ├─ SpotCard.vue
 │  │  └─ ToastMessage.vue
 │  ├─ composables/
@@ -165,21 +185,25 @@ Vite 的 `publicDir` 指向项目根目录的 `image`，因此页面和 Mock 数
 │  ├─ types/
 │  │  └─ travel.ts
 │  ├─ utils/
-│  │  └─ asset.ts
+│  │  ├─ asset.ts
+│  │  └─ trip.ts
 │  ├─ views/
+│  │  ├─ GuideView.vue
 │  │  ├─ HomeView.vue
-│  │  ├─ RegionView.vue
-│  │  ├─ PlannerView.vue
 │  │  ├─ LoginView.vue
-│  │  ├─ SpotDetailView.vue
 │  │  ├─ MyTripView.vue
-│  │  ├─ TripDetailView.vue
-│  │  └─ ProfileView.vue
+│  │  ├─ PlannerView.vue
+│  │  ├─ ProfileView.vue
+│  │  ├─ RegionView.vue
+│  │  ├─ SpotDetailView.vue
+│  │  └─ TripDetailView.vue
 │  ├─ App.vue
+│  ├─ env.d.ts
 │  └─ main.ts
 ├─ index.html
 ├─ package.json
 ├─ pnpm-lock.yaml
+├─ pnpm-workspace.yaml
 ├─ postcss.config.js
 ├─ tailwind.config.js
 ├─ tsconfig.json
