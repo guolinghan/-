@@ -4,6 +4,10 @@
 
 项目使用 Vue 3、TypeScript、Vite、Tailwind CSS 和 vuedraggable 开发，数据完全由前端 Mock 和 localStorage 模拟，不依赖后端接口。
 
+> 在线演示：[https://guolinghan.github.io/-/](https://guolinghan.github.io/-/)
+
+无需下载代码，直接打开即可体验。项目支持桌面端和移动端，数据保存在浏览器本地。
+
 ## 功能概览
 
 - 4 个旅行大区：川西小环线、桂北阳朔、郴州山野、浙西临安
